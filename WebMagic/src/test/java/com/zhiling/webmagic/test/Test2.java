@@ -13,7 +13,7 @@ import org.apache.http.impl.client.HttpClients;
 public class Test2 {
 
 	public static void main(String[] args) throws ClientProtocolException,
-			IOException {
+			IOException { 
 		
         String userName = "928402767@qq.com";
         String password = "f0107142020.";

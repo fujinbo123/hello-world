@@ -12,17 +12,13 @@ public class TestGithubRepoPageProcessor implements PageProcessor {
 
     @Override
     // process是定制爬虫逻辑的核心接口，在这里编写抽取逻辑
-    public void process(Page page) {
+    public void process(Page page) { 
         // 部分二：定义如何抽取页面信息，并保存下来
     	Selectable url = page.getUrl();
     	String author = page.getUrl().regex("https://www.cnblogs.com").toString();
         page.putField("author", author);
         String name = page.getHtml().xpath("//div[@class='post_item_body']").toString();
-        
-        
         String source=page.getHtml().xpath("//*[@id='wrapper']/text()").get();
-        
-        
         page.putField("name", page.getHtml().xpath("//h1[@class='c-tips-container']/text()").toString());
         if (page.getResultItems().get("name") == null) {
             //skip this page
